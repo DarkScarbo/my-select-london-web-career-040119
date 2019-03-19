@@ -1,9 +1,11 @@
-def my_select(collection)
-  array=[]
+def my_select(array)
   i = 0
-  while i < collection.length
-    collection.select << yield(array[i])
-    i+=1
+  select = []
+  while i < array.length
+    if yield(array[i])
+      select << array[i]
     end
-  collection
+    i+=1
+  end
+  select
 end
